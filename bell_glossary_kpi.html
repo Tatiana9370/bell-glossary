@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bell · Глосарій KPI · Еженедельний звіт</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans',sans-serif;background:#f5f4f0;color:#1a1a18;font-size:14px;line-height:1.6}
+.page{max-width:820px;margin:0 auto;padding:32px 24px 60px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;padding-bottom:20px;border-bottom:2px solid #1a1a18}
+.logo{font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600}
+.logo span{color:#c8411a}
+.meta{text-align:right;font-size:12px;color:#666;line-height:1.8}
+.meta strong{display:block;font-size:13px;color:#1a1a18}
+.group-label{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#888;margin:28px 0 10px;padding-bottom:6px;border-bottom:0.5px solid #ccc}
+.term{background:#fff;border:0.5px solid #ddd;margin-bottom:6px;display:grid;grid-template-columns:200px 1fr;min-height:48px}
+.term-name{padding:12px 16px;border-right:0.5px solid #eee;display:flex;flex-direction:column;justify-content:center}
+.col-code{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#1a1a18;margin-bottom:2px}
+.col-alias{font-size:11px;color:#888}
+.term-body{padding:12px 16px}
+.term-title{font-weight:500;font-size:13px;margin-bottom:5px}
+.formula{font-family:'IBM Plex Mono',monospace;font-size:12px;background:#f5f4f0;border:0.5px solid #ddd;padding:5px 10px;display:inline-block;margin:4px 0;color:#333}
+.example{font-size:12px;color:#666;margin-top:4px}
+.key-formula{margin-top:28px;padding:16px;background:#fff;border:0.5px solid #ddd;font-size:12px;color:#666;line-height:1.8}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="top">
+  <div class="logo">Bell<span>.</span> Глосарій KPI</div>
+  <div class="meta">
+    <strong>Еженедельний звіт — всі терміни</strong>
+    Довідник для Power BI
+  </div>
+</div>
+
+<!-- ВИРУЧКА -->
+<div class="group-label">Виручка (Вир)</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">выр пл1</div><div class="col-alias">план виручки</div></div>
+  <div class="term-body">
+    <div class="term-title">Планова виручка поточного периоду</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">выр1</div><div class="col-alias">факт виручки (поточний)</div></div>
+  <div class="term-body">
+    <div class="term-title">Фактична виручка поточного звітного периоду</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">выр2</div><div class="col-alias">факт виручки (попередній)</div></div>
+  <div class="term-body">
+    <div class="term-title">Фактична виручка попереднього звітного периоду</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">вырΔ</div><div class="col-alias">зміна виручки абс.</div></div>
+  <div class="term-body">
+    <div class="term-title">Абсолютна зміна виручки: поточний vs попередній</div>
+    <div class="formula">вырΔ = выр1 − выр2</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">выр%</div><div class="col-alias">динаміка виручки %</div></div>
+  <div class="term-body">
+    <div class="term-title">Відсоткова зміна виручки: поточний vs попередній</div>
+    <div class="formula">выр% = выр1 / выр2 − 1</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">КВП Выр1</div><div class="col-alias">виконання плану виручки</div></div>
+  <div class="term-body">
+    <div class="term-title">Коефіцієнт виконання плану по виручці</div>
+    <div class="formula">КВП Выр = выр1 / выр пл1</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">Уд.вес Выр</div><div class="col-alias">частка виручки</div></div>
+  <div class="term-body">
+    <div class="term-title">Частка ТТ у загальній виручці компанії</div>
+    <div class="formula">Уд.вес Выр = выр1 (ТТ) / Σ выр1 (всі)</div>
+  </div>
+</div>
+
+<!-- ВАЛОВИЙ ПРИБУТОК -->
+<div class="group-label">Валовий прибуток (ВП)</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">вп пл1</div><div class="col-alias">план ВП</div></div>
+  <div class="term-body">
+    <div class="term-title">Плановий валовий прибуток (виручка мінус собівартість)</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">вп1</div><div class="col-alias">факт ВП (поточний)</div></div>
+  <div class="term-body">
+    <div class="term-title">Фактичний валовий прибуток поточного периоду</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">вп2</div><div class="col-alias">факт ВП (попередній)</div></div>
+  <div class="term-body">
+    <div class="term-title">Фактичний валовий прибуток попереднього периоду</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">впΔ</div><div class="col-alias">зміна ВП абс.</div></div>
+  <div class="term-body">
+    <div class="term-title">Абсолютна зміна валового прибутку</div>
+    <div class="formula">впΔ = вп1 − вп2</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">вп%</div><div class="col-alias">динаміка ВП %</div></div>
+  <div class="term-body">
+    <div class="term-title">Відсоткова зміна валового прибутку</div>
+    <div class="formula">вп% = вп1 / вп2 − 1</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">КВП вп1</div><div class="col-alias">виконання плану ВП</div></div>
+  <div class="term-body">
+    <div class="term-title">Коефіцієнт виконання плану по валовому прибутку</div>
+    <div class="formula">КВП вп = вп1 / вп пл1</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">Уд.вес вп1</div><div class="col-alias">частка ВП</div></div>
+  <div class="term-body">
+    <div class="term-title">Частка ТТ у загальному валовому прибутку компанії</div>
+    <div class="formula">Уд.вес вп = вп1 (ТТ) / Σ вп1 (всі)</div>
+  </div>
+</div>
+
+<!-- ROM -->
+<div class="group-label">ROM — рентабельність по валовому прибутку</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">ROMпл</div><div class="col-alias">план ROM</div></div>
+  <div class="term-body">
+    <div class="term-title">Планова рентабельність</div>
+    <div class="formula">ROMпл = вп пл1 / выр пл1</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">ROM1</div><div class="col-alias">факт ROM (поточний)</div></div>
+  <div class="term-body">
+    <div class="term-title">Фактична рентабельність поточного периоду</div>
+    <div class="formula">ROM1 = вп1 / выр1</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">ROM2</div><div class="col-alias">факт ROM (попередній)</div></div>
+  <div class="term-body">
+    <div class="term-title">Фактична рентабельність попереднього периоду</div>
+    <div class="formula">ROM2 = вп2 / выр2</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">ROM%</div><div class="col-alias">зміна ROM в п.п.</div></div>
+  <div class="term-body">
+    <div class="term-title">Зміна рентабельності: поточний vs попередній</div>
+    <div class="formula">ROM% = ROM1 − ROM2</div>
+  </div>
+</div>
+
+<!-- ТРАФІК -->
+<div class="group-label">Трафік / Вхідний потік (кількість відвідувачів)</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">ТРпл1</div><div class="col-alias">план трафіку</div></div>
+  <div class="term-body">
+    <div class="term-title">Планова кількість відвідувачів за период</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">Тр1</div><div class="col-alias">факт трафіку (поточний)</div></div>
+  <div class="term-body">
+    <div class="term-title">Фактична кількість відвідувачів поточного периоду</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">Тр2</div><div class="col-alias">факт трафіку (попередній)</div></div>
+  <div class="term-body">
+    <div class="term-title">Фактична кількість відвідувачів попереднього периоду</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">Тр Δ</div><div class="col-alias">зміна трафіку абс.</div></div>
+  <div class="term-body">
+    <div class="term-title">Абсолютна зміна трафіку: поточний vs попередній</div>
+    <div class="formula">ТрΔ = Тр1 − Тр2</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">ΔТр%</div><div class="col-alias">динаміка трафіку %</div></div>
+  <div class="term-body">
+    <div class="term-title">Відсоткова зміна трафіку</div>
+    <div class="formula">ΔТр% = Тр1 / Тр2 − 1</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">Уд вес Тр</div><div class="col-alias">частка трафіку</div></div>
+  <div class="term-body">
+    <div class="term-title">Частка ТТ у загальному трафіку мережі</div>
+    <div class="formula">Уд вес Тр = Тр1 (ТТ) / Σ Тр1 (всі ТТ)</div>
+  </div>
+</div>
+
+<!-- КОНВЕРСІЯ -->
+<div class="group-label">Конверсія</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">Конвпл1</div><div class="col-alias">план конверсії</div></div>
+  <div class="term-body">
+    <div class="term-title">Планова конверсія — частка відвідувачів, що зробили покупку</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">Конв1</div><div class="col-alias">факт конверсії (поточний)</div></div>
+  <div class="term-body">
+    <div class="term-title">Фактична конверсія поточного периоду</div>
+    <div class="formula">Конв1 = кількість транзакцій / Тр1</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">Конв2</div><div class="col-alias">факт конверсії (попередній)</div></div>
+  <div class="term-body">
+    <div class="term-title">Фактична конверсія попереднього периоду</div>
+    <div class="formula">Конв2 = транзакції попереднього / Тр2</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">Конв_Δ</div><div class="col-alias">зміна конверсії абс.</div></div>
+  <div class="term-body">
+    <div class="term-title">Абсолютна зміна конверсії в процентних пунктах</div>
+    <div class="formula">Конв_Δ = Конв1 − Конв2</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">ΔКонв%</div><div class="col-alias">динаміка конверсії %</div></div>
+  <div class="term-body">
+    <div class="term-title">Відсоткова зміна конверсії (не п.п., а %)</div>
+    <div class="formula">ΔКонв% = Конв1 / Конв2 − 1</div>
+  </div>
+</div>
+
+<!-- СЕРЕДНІЙ ЧЕК -->
+<div class="group-label">Середній чек (СРчек)</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">СРчекпл1</div><div class="col-alias">план середнього чека</div></div>
+  <div class="term-body">
+    <div class="term-title">Плановий середній чек на одну транзакцію</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">СРчек1</div><div class="col-alias">факт середнього чека (поточний)</div></div>
+  <div class="term-body">
+    <div class="term-title">Фактичний середній чек поточного периоду</div>
+    <div class="formula">СРчек1 = выр1 / (Тр1 × Конв1)</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">СРчек2</div><div class="col-alias">факт середнього чека (попередній)</div></div>
+  <div class="term-body">
+    <div class="term-title">Фактичний середній чек попереднього периоду</div>
+    <div class="formula">СРчек2 = выр2 / (Тр2 × Конв2)</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">СРчекΔ</div><div class="col-alias">зміна середнього чека абс.</div></div>
+  <div class="term-body">
+    <div class="term-title">Абсолютна зміна середнього чека</div>
+    <div class="formula">СРчекΔ = СРчек1 − СРчек2</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">ΔСРчек%</div><div class="col-alias">динаміка середнього чека %</div></div>
+  <div class="term-body">
+    <div class="term-title">Відсоткова зміна середнього чека</div>
+    <div class="formula">ΔСРчек% = СРчек1 / СРчек2 − 1</div>
+  </div>
+</div>
+
+<!-- ПНов -->
+<div class="group-label">ПНов — прибуток на одного відвідувача (PPV / NPV)</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">ПНов пл1</div><div class="col-alias">план PPV</div></div>
+  <div class="term-body">
+    <div class="term-title">Плановий прибуток на одного відвідувача</div>
+    <div class="formula">ПНов пл1 = вп пл1 / ТРпл1</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">ПНов1</div><div class="col-alias">PPV — поточний</div></div>
+  <div class="term-body">
+    <div class="term-title">Фактичний прибуток на одного відвідувача поточного периоду</div>
+    <div class="formula">ПНов1 = вп1 / Тр1</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">ПНов2</div><div class="col-alias">NPV — попередній</div></div>
+  <div class="term-body">
+    <div class="term-title">Фактичний прибуток на одного відвідувача попереднього периоду</div>
+    <div class="formula">ПНов2 = вп2 / Тр2</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">ΔПНов</div><div class="col-alias">зміна PPV абс.</div></div>
+  <div class="term-body">
+    <div class="term-title">Абсолютна зміна прибутку на відвідувача</div>
+    <div class="formula">ΔПНов = ПНов1 − ПНов2</div>
+  </div>
+</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">ΔПНов%</div><div class="col-alias">динаміка PPV %</div></div>
+  <div class="term-body">
+    <div class="term-title">Відсоткова зміна прибутку на відвідувача</div>
+    <div class="formula">ΔПНов% = ПНов1 / ПНов2 − 1</div>
+  </div>
+</div>
+
+<!-- ОбТО -->
+<div class="group-label">ОбТО — оборотність товарних запасів</div>
+
+<div class="term">
+  <div class="term-name"><div class="col-code">ОбТО1</div><div class="col-alias">оборотність ТЗ (поточний)</div></div>
+  <div class="term-body">
+    <div class="term-title">Оборотність товарних запасів поточного периоду</div>
+    <div class="formula">ОбТО1 = Собівартість продажів / Середні товарні залишки</div>
+  </div>
+</div>
+
+<!-- КЛЮЧОВА ФОРМУЛА -->
+<div class="key-formula">
+  <strong style="display:block;color:#1a1a18;margin-bottom:6px;font-size:13px">Ключова формула виручки</strong>
+  Виручка = Трафік × Конверсія × Середній чек<br>
+  <span style="font-family:'IBM Plex Mono',monospace;font-size:11px">выр1 = Тр1 × Конв1 × СРчек1</span><br><br>
+  Будь-яке відхилення виручки пояснюється через один або комбінацію трьох факторів: трафік, конверсія, чек.
+</div>
+
+</div>
+</body>
+</html>
